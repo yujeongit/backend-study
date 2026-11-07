@@ -436,3 +436,34 @@ public class SpringConfig {
 - 주의
   - @Autowired를 통한 DI는 스프링 컨테이너에 의해 등록되고 관리되는 스프링 빈 객체 사이에서만 동작. 
   - 개발자가 일반 자바 코드로 new를 써서 직접 생성한 객체 내부에서는 동작하지 않는다.
+ 
+--- 
+### 코드 정리
+
+```text
+react/
+└── week06/
+    ├── README.md
+    └── src/
+        ├── main/
+        │   └── java/
+        │       └── hello/
+        │           └── hellospring/
+        │               ├── SpringConfig.java               # 자바 코드로 직접 스프링 빈 등록
+        │               ├── controller/
+        │               │   └── MemberController.java       # 웹 MVC 컨트롤러 (DI 적용)
+        │               ├── domain/
+        │               │   └── Member.java                 # 회원 비즈니스 도메인 객체
+        │               ├── repository/
+        │               │   ├── MemberRepository.java       # 회원 저장소 인터페이스
+        │               │   └── MemoryMemberRepository.java # 메모리 기반 저장소 구현체
+        │               └── service/
+        │                   └── MemberService.java          # 회원가입 및 중복 검증 비즈니스 로직
+        └── test/
+            └── java/
+                └── hello/
+                    └── hellospring/
+                        ├── repository/
+                        │   └── MemoryMemberRepositoryTest.java # 리포지토리 단위 테스트
+                        └── service/
+                            └── MemberServiceTest.java          # 서비스 단위 테스트
